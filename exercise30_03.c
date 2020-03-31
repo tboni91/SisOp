@@ -137,9 +137,9 @@ int main(int argc, char *argv[]) {
 
 	printf("The two arrays are: \n");
 	if (equals(fibonacci_result, fibonacci_result_copy))
-		printf("EQUAL\n");
+		printf("EQUALS\n");
 	else
-		printf("NOT EQUAL\n");
+		printf("NOT EQUALS\n");
 
 
 	free(fibonacci_result);
