@@ -137,7 +137,7 @@ int main(int argc, char *argv[]) {
 
 	printf("The two arrays are: \n");
 	match = memcmp(fibonacci_result, fibonacci_result_copy, (n+1)*sizeof(unsigned long));
-	if ( == 0)
+	if (match == 0)
 		printf("EQUALS\n");
 	else
 		printf("NOT EQUALS\n");
