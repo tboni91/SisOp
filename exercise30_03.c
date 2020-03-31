@@ -10,7 +10,6 @@ void swap_long(unsigned long *x, unsigned long *y);
 unsigned long * reverse(unsigned long * array, unsigned int i, unsigned int j);
 unsigned long * complete_reverse(unsigned long * array, unsigned int array_len);
 void bubble_sort(unsigned long * array, unsigned int array_dimension);
-int equals(unsigned long * array1, unsigned long * array2);
 
 /* esercizio 2020-03-30*** (deve risultare un unico programma in C, scrivete tutto il codice sorgente in src/esercizio20200330.c)
 
@@ -89,6 +88,7 @@ int main(int argc, char *argv[]) {
 	unsigned int n = 39;
 	unsigned long * fibonacci_result;
 	unsigned long * fibonacci_result_copy;
+	int match;
 
 	fibonacci_result = fibonacci_array(n);
 
@@ -136,7 +136,8 @@ int main(int argc, char *argv[]) {
 	printf("}\n");
 
 	printf("The two arrays are: \n");
-	if (equals(fibonacci_result, fibonacci_result_copy))
+	match = memcmp(fibonacci_result, fibonacci_result_copy, (n+1)*sizeof(unsigned long));
+	if ( == 0)
 		printf("EQUALS\n");
 	else
 		printf("NOT EQUALS\n");
@@ -235,20 +236,3 @@ void bubble_sort(unsigned long * array, unsigned int array_dimension) {
     }
   }
 }
-
-int equals(unsigned long * array1, unsigned long * array2) {
-	// mi segnala che sizeof(array1) / sizeof(unsigned long) non ritorna il numero di celle
-  unsigned int dim1 = sizeof(array1) / sizeof(unsigned long);
-	unsigned int dim2 = sizeof(array2) / sizeof(unsigned long);
-
-	if (dim1 == dim2) {
-		for (int i = 0; i <= dim1; i++) {
-			if (array1[i] != array2[i])
-				return 0;
-		}
-	} else
-		return 0;
-
-	return 1;
-}
-
